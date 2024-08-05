@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="main">
+    
+        <form action="" method="POST" class="form" id="form-1">
+          <h3 class="heading">Thành viên đăng ký</h3>
+          <p class="desc">Lib for form <3</p>
+      
+          <div class="spacer"></div>
+      
+          <div class="form-group">
+            <label for="fullname" class="form-label">Tên đầy đủ</label>
+            <input id="fullname" name="fullname" type="text" placeholder="VD: Ahn Tuann" class="form-control">
+            <span class="form-message"></span>
+          </div>
+      
+          <div class="form-group">
+            <label for="email" class="form-label">Email</label>
+            <input id="email" name="email" type="text" placeholder="VD: email@domain.com" class="form-control">
+            <span class="form-message"></span>
+          </div>
+      
+          <div class="form-group">
+            <label for="password" class="form-label">Mật khẩu</label>
+            <input id="password" name="password" type="password" placeholder="Nhập mật khẩu" class="form-control">
+            <span class="form-message"></span>
+          </div>
+      
+          <div class="form-group">
+            <label for="password_confirmation" class="form-label">Nhập lại mật khẩu</label>
+            <input id="password_confirmation" name="password_confirmation" placeholder="Nhập lại mật khẩu" type="password" class="form-control">
+            <span class="form-message"></span>
+          </div>
+
+          <div class="form-group">
+            <label for="avt" class="form-label">Avatar</label>
+            <input id="avt" name="avt" type="file" class="form-control">
+            <span class="form-message"></span>
+          </div>
+
+          <div class="form-group">
+            <label for="avt" class="form-label">Avatar</label>
+            <select name="Country" id="country">
+                <option value="Nochoice">Country</option>
+                <option value="vietnam">Viet Nam</option>
+                <option value="america">My</option>
+            </select>
+            <span class="form-message"></span>
+          </div>
+
+          <div class="form-group">
+            <label for="gender" class="form-label">Giới tính</label>
+            <div>
+                <input name="gender" type="radio" class="form-control" value="male">
+                Nam
+            </div>
+            <div>
+                <input name="gender" type="radio" class="form-control" value="female">
+                Nu
+            </div>
+            <div>
+                <input name="gender" type="radio" class="form-control" value="other">
+                Khac
+            </div>
+            <span class="form-message"></span>
+          </div>
+      
+          <button class="form-submit">Đăng ký</button>
+        </form>
+      
+    </div>
+    
+    <script src="main.js"></script>
+
+    <script>
+
+        Validator({
+            form: "#form-1",
+            errorSelector: '.form-message',
+            formGroupSelector: '.form-group',
+            rules: [
+                Validator.isRequired('input[name="gender"]', 'Vui lòng nhập tên của bạn.'),
+                Validator.isRequired('#country', 'Vui lòng nhập tên của bạn.'),
+                // Validator.isRequired('#fullname', 'Vui lòng nhập tên của bạn.'),
+                // Validator.isRequired('#email', 'Vui lòng nhập email của bạn.'),
+                // Validator.isEmail('#email'),
+                // Validator.minLength('#password', 6),
+                // Validator.isRequired('#password_confirmation', 'Vui lòng nhập trường này.'),
+                // Validator.isConfirmed('#password_confirmation', () => {
+                //     return document.querySelector('#form-1 #password').value;
+                // }, 'Mật khẩu nhập lại không chính xác!'),
+            ],
+            onSubmit: (data) => {
+                console.log(data);
+            }
+        })
+
+    </script>
+</body>
+</html>
